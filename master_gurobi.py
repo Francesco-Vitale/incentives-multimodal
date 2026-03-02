@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-for counter in range(1):
+for counter in range(6):
 
     def extract_entity(ampl, name, entity_type="variable"):
         """

@@ -81,7 +81,7 @@ subject to Multimodal_Utility{w in OD_M}:
     #Um[w] = beta0 + beta1 * ttpt[w_pt[w]] + beta2 * WT[w_pt[w]] + beta3 * phi[w_pt[w]] - beta4 * Ipt[w_pt[w]];
     #Um[w] = beta0 + beta1 * ttpt[w] + beta2 * WT[w] + beta3 * phi[w] - beta4 * Ipt[w_pt[w]];
 
-subject to Public_Transport_Utility{w in (OD_PT inter OD_O)}:# union OD_M}:
+subject to Public_Transport_Utility{w in (OD_PT inter OD_O) union OD_M}:
     Upt[w] = beta0 + beta1 * ttpt[w] + beta2 * WT[w] + beta3 * phi[w] - beta4 * Ipt[w];
 
 subject to Car_Utility{w in (OD_PT inter OD_O) union OD_M}:
@@ -105,14 +105,14 @@ subject to Phi_Definition{w in OD_PT}:
 
 ###############################################################################################
 
-subject to equillibrium_cond1{p in Paths, w in OD}:
+subject to equillibrium_cond1{p in Paths, w in OD_C}:
     ( sum{l in Links} (delta[l, p, w] * t[l]) - u[w]*pw[p, w] ) >= 0;
 
-subject to equillibrium_cond2{p in Paths, w in OD}:
+subject to equillibrium_cond2{p in Paths, w in OD_C}:
     ( sum{l in Links} (delta[l, p, w] * t[l]) - u[w]*pw[p, w] )*f[p, w] = 0;
 
 subject to Link_Flows{l in Links}:
-    X[l] = sum{p in Paths, w in OD} delta[l, p, w]*f[p, w];
+    X[l] = sum{p in Paths, w in OD_C} delta[l, p, w]*f[p, w];
 
 subject to Link_Travel_Time{l in Links}:
     t[l] = t0[l] * (1 + K * (X[l] / cap[l])^L);
@@ -131,7 +131,7 @@ subject to Flow_Conservation1_3{w in OD_M}:
 subject to Flow_Conservation1_4{w in OD_PT inter OD_V}:
     qc[w] = 0;
 
-subject to Flow_Conservation2{w in OD}:
+subject to Flow_Conservation2{w in OD_C}:
     qc[w] = sum{p in Paths} f[p, w]*pw[p, w];
 
 ################################################################################################

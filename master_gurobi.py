@@ -54,12 +54,12 @@ for counter in range(6):
     budgets = range(0,2_000_001,10_000)
     #budgets = range(0,50_001,5_000)
     budgets = (
-        list(range(0, 101, 10)) +
-        list(range(0, 1001, 100)) +
+	list(range(0, 11, 1)) +
+        list(range(20, 101, 10)) +
+        list(range(200, 1001, 100)) +
         list(range(2000, 10001, 1000)) +
         list(range(20000, 100001, 10000)) +
-        list(range(200000, 1000001, 100000)) +
-        [2000000]
+        list(range(200000, 1000001, 100000))
     )
 
     # Master DataFrame to collect results across budgets

@@ -6,8 +6,9 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-for counter_ in range(1):
-    counter = 7
+n_sim = 8
+
+for counter in range(n_sim):
 
     def extract_entity(ampl, name, entity_type="variable"):
         """
@@ -60,7 +61,8 @@ for counter_ in range(1):
         list(range(20, 101, 10)) +
         list(range(200, 1_001, 100)) +
         list(range(2_00, 10_001, 1_000)) +
-        list(range(20_000, 100_001, 10_000))
+        list(range(20_000, 100_001, 10_000)) +
+	list(range(200_000, 1_000_001, 100_000))
     )
 
     # Master DataFrame to collect results across budgets

@@ -62,7 +62,8 @@ for counter in range(n_sim):
         list(range(200, 1_001, 100)) +
         list(range(2_00, 10_001, 1_000)) +
         list(range(20_000, 100_001, 10_000)) +
-	list(range(200_000, 1_000_001, 100_000))
+	list(range(200_000, 1_000_001, 100_000)) +
+	list(range(2_000_000, 10_000_001, 1_000_000))
     )
 
     # Master DataFrame to collect results across budgets

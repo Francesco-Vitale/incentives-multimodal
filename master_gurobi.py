@@ -52,15 +52,7 @@ network_name = "jatkasaari_network"
 #budgets = range(0,2_000_001,10_000)
 #budgets = range(0,50_001,5_000)
 
-budgets = (
-	list(range(0, 11, 1)) +
-	list(range(20, 101, 10)) +
-	list(range(200, 1_001, 100)) +
-	list(range(2_00, 10_001, 1_000)) +
-	list(range(20_000, 100_001, 10_000)) +
-list(range(200_000, 1_000_001, 100_000)) +
-list(range(2_000_000, 10_000_001, 1_000_000))
-)
+budgets = (list(range(0, 10_001, 1_000)))
 
 # Master DataFrame to collect results across budgets
 sensitivity_results = []
